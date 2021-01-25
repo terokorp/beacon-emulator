@@ -27,7 +27,7 @@ class Kontakt(Beacon):
         ad_hex = hexify(self.advertisement)
         self.__print(ad_hex, power_hex)
         length = hexify(len(hex_split(ad_hex).split(" ")) + 1)
-        content = f"{length} 09 {hex_split(ad_hex)} 02 0A F4 0A 16 0D D0 61 62 63 64 04 02 06 00"
+        content = f"{length} 09 {hex_split(ad_hex)} 02 0A F4 0A 16 0D D0 61 62 63 64 04 02 06 00 00"
         self._run_command(content)
 
     def _validate(self):

@@ -9,7 +9,7 @@ class Beacon(ABC):
         self.power = int(kwargs["power"])
         self._validate()
         self.head_cmd = f"hcitool -i {self.device} cmd 0x08 0x0008 1E"
-        self.tail_cmd = "00 >/dev/null"
+        self.tail_cmd = ">/dev/null"
 
     def _run_command(self, cmd):
         process_command(f"hciconfig {self.device} up")

@@ -34,7 +34,8 @@ class EddystoneUid(Beacon):
         frame_type = "00"
         eddystone = f"02 01 06 03 03 AA FE 15 16 AA FE {frame_type}"
         content = f"{hex_split(namespace_hex)} {hex_split(instance_hex)}"
-        self._run_command(f"{eddystone} E7 {content}")
+        rfu = "00 00"
+        self._run_command(f"{eddystone} {power_hex} {content} {rfu}")
 
     def _validate(self):
         super()._validate()

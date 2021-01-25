@@ -32,7 +32,7 @@ class IBeacon(Beacon):
         minor_hex = hexify(self.minor, 4)
         self.__print(major_hex, minor_hex, power_hex)
 
-        content = f"{self.__uuid()} {hex_split(major_hex)} {hex_split(minor_hex)} {power_hex}"
+        content = f"{self.__uuid()} {hex_split(major_hex)} {hex_split(minor_hex)} {power_hex} 00"
         manufacturer = "4C 00 02 15"
         ibeacon = f"02 01 06 1A FF {manufacturer}"
         self._run_command(f"{ibeacon} {content}")
